@@ -8,7 +8,13 @@ resource "aws_security_group" "proj-sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+# Ingress rule to allow all inbound traffic
+  ingress {
+    from_port   = 0
+    to_port     = 0  # All ports
+    protocol    = "-1"    # All protocols
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   egress {
     from_port   = 0
     to_port     = 0
